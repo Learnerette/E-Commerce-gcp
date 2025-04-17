@@ -1,0 +1,51 @@
+<div class="cart-container">
+  <h2>Shopping Cart</h2>
+  <button (click)="goBack()">Go Back</button>
+  <br><br>
+
+  <div *ngIf="notificationMessage">
+    <app-notification [message]="notificationMessage" [type]="notificationType"></app-notification>
+  </div>
+
+  <div *ngIf="cartItems.length === 0">
+    <p>Your cart is empty.</p>
+  </div>
+
+  <div *ngIf="cartItems.length > 0" class="cart-items-list">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>
+            <div class="product-info">
+              <h3>{{ item.product.name }}</h3>
+              <p class="category">Category: {{ item.product.category }}</p>
+              <p class="description">{{ item.product.description }}</p>
+            </div>
+          </td>
+          <td>${{ item.product.price }}</td>
+          <td>
+            <input type="number" min="1" [value]="item.quantity" (change)="updateQuantity(item, $event)">
+          </td>
+          <td>${{ item.product.price * item.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cart-summary">
+    <strong>Total Price: ${{ totalPrice }}</strong>
+    <button (click)="placeOrder()" [disabled]="cartItems.length === 0">Place Order</button>
+  </div>
+
+  <!-- <app-address *ngIf="showAddressForm" (addressSubmit)="onAddressSubmit($event)"></app-address> -->
+
+  
+</div>

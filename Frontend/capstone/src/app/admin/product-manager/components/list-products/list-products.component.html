@@ -1,0 +1,48 @@
+<div class="list-products-container">
+  <h2>Product List</h2>
+
+  <div *ngIf="isLoading" class="loading-indicator">
+    Loading products...
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="notificationMessage" class="notification" [ngClass]="notificationType">
+    {{ notificationMessage }}
+  </div>
+  <div *ngIf="!isLoading && !errorMessage">
+    <div *ngIf="filteredProducts.length === 0">
+      <p>No products in this category.</p>
+    </div>
+
+    <div *ngIf="filteredProducts.length > 0" class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of filteredProducts">
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.category }}</td>
+            <td>
+            <button class="icon-button edit-button" *ngIf="product.id" (click)="editProduct(product.id)"><i class="fas fa-edit"></i></button>
+            <button class="icon-button delete-button" *ngIf="product.id" (click)="deleteProduct(product.id)"><i class="fas fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
