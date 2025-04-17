@@ -1,0 +1,14 @@
+<div class="product-manager-container">
+  <h2>Product Management</h2>
+
+  <div class="button-container">
+    <button class="styled-button add-button" (click)="goToAddProduct()">
+      <i class="fas fa-plus-circle"></i> Add Product
+    </button>
+    <button class="styled-button list-button" (click)="goToListProducts()">
+      <i class="fas fa-list"></i> Show Products
+    </button>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

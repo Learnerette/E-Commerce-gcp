@@ -1,0 +1,48 @@
+<form [formGroup]="addressForm" (ngSubmit)="onSubmit()" class="container mt-3">
+  <div class="mb-3">
+    <label for="fullName" class="form-label">Full Name:</label>
+    <input type="text" id="fullName" formControlName="fullName" class="form-control">
+    <div *ngIf="addressForm.get('fullName')?.invalid && (addressForm.get('fullName')?.dirty || addressForm.get('fullName')?.touched)" class="text-danger">
+      Full Name is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="addressLine1" class="form-label">Address Line 1:</label>
+    <input type="text" id="addressLine1" formControlName="addressLine1" class="form-control">
+    <div *ngIf="addressForm.get('addressLine1')?.invalid && (addressForm.get('addressLine1')?.dirty || addressForm.get('addressLine1')?.touched)" class="text-danger">
+      Address is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="addressLine2" class="form-label">Address Line 2:</label>
+    <input type="text" id="addressLine2" formControlName="addressLine2" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="city" class="form-label">City:</label>
+    <input type="text" id="city" formControlName="city" class="form-control">
+    <div *ngIf="addressForm.get('city')?.invalid && (addressForm.get('city')?.dirty || addressForm.get('city')?.touched)" class="text-danger">
+      City is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="state" class="form-label">State:</label>
+    <input type="text" id="state" formControlName="state" class="form-control">
+    <div *ngIf="addressForm.get('state')?.invalid && (addressForm.get('state')?.dirty || addressForm.get('state')?.touched)" class="text-danger">
+      State is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="zipCode" class="form-label">Zip Code:</label>
+    <input type="text" id="zipCode" formControlName="zipCode" class="form-control">
+    <div *ngIf="addressForm.get('zipCode')?.invalid && (addressForm.get('zipCode')?.dirty || addressForm.get('zipCode')?.touched)" class="text-danger">
+      Please enter a valid Zip Code.
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit Address</button>
+</form>

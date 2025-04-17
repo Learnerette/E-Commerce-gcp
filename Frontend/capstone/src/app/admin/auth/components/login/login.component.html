@@ -1,0 +1,23 @@
+<div class="auth-container">
+  <h2>Login</h2>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <form [formGroup]="authService.authForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" required formControlName="email">
+      <span class="help-block" *ngIf="authService.authForm.get('email')?.invalid && authService.authForm.get('email')?.touched">Please enter a valid email!</span>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" class="form-control" required formControlName="password">
+      <span class="help-block" *ngIf="authService.authForm.get('password')?.invalid && authService.authForm.get('password')?.touched">Please enter a valid password!</span>
+    </div>
+    <div>
+      <button class="btn btn-primary" type="submit" [disabled]="authService.authForm.invalid">Login</button>
+    </div>
+  </form>
+  <div *ngIf="isLoading">
+    <p>Loading...</p>
+  </div>
+  <p>Not a member? <a routerLink="/admin/auth/signup" >Sign up</a></p>
+</div>

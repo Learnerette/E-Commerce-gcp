@@ -1,0 +1,67 @@
+<div class="about-container">
+  <section class="hero-section">
+    <div class="container">
+      <h1>About Us</h1>
+      <p>Get to know {{ companyInfo.name }}</p>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="container">
+      <h2>Our Story</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Welcome to {{ companyInfo.name }}, your trusted online shopping destination since {{ companyInfo.founded }}.</p>
+          <p>We started with a simple idea, create an online store that puts customer satisfaction first. What began as a small business has grown into a trusted e-commerce platform serving thousands of happy customers.</p>
+          <p>Our mission is simple, {{ companyInfo.mission }}</p>
+        </div>
+        <div class="about-image">
+          <img src="https://img.freepik.com/premium-photo/online-shop-advertisement-featuring-laptop-as-background-designed-with-ample-copy-space-highlight-products-promotions-effectively_1089666-2473.jpg?w=1480" alt="Our store">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="container">
+      <h2>Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member" *ngFor="let member of companyInfo.team">
+          <div class="member-info">
+            <h3>{{ member.name }}</h3>
+            <p class="position">{{ member.position }}</p>
+            <p>{{ member.bio }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values-section">
+    <div class="container">
+      <h2>Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Quality</h3>
+          <p>We carefully select every product in our inventory to ensure it meets our high standards.</p>
+        </div>
+        <div class="value-card">
+          <h3>Customer Service</h3>
+          <p>Our dedicated support team is always ready to assist you with any questions or concerns.</p>
+        </div>
+        <div class="value-card">
+          <h3>Affordability</h3>
+          <p>We work directly with suppliers to offer competitive prices without compromising quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <p>Have questions about our company? We'd love to hear from you!</p>
+      <a routerLink="/contact" class="contact-button">Contact Us</a>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,49 @@
+.address-container {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.address-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.address-container div {
+  margin-bottom: 10px;
+}
+
+.address-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.address-container input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.address-container .error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.address-container button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.address-container button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

@@ -1,0 +1,42 @@
+<!-- <div *ngIf="loading">
+  <p>Loading order details...</p>
+</div>
+
+<div *ngIf="error">
+  <p class="error-message">{{ error }}</p>
+</div>
+
+<div *ngIf="orderDetails">
+  <h2>Order Details</h2>
+  <p><strong>Order ID:</strong> {{ orderDetails.orderId }}</p>
+
+  <h3>Shipping Address</h3>
+  <p><strong>First Name:</strong> {{ orderDetails.user?.fullName }}</p>
+  <p><strong>Address Line 1:</strong> {{ orderDetails.address?.addressLine1 }}</p>
+  <p><strong>Address Line 2:</strong> {{ orderDetails.address?.addressLine2 }}</p>
+  <p><strong>City:</strong> {{ orderDetails.address?.city }}</p>
+  <p><strong>State:</strong> {{ orderDetails.address?.state }}</p>
+  <p><strong>Zip Code:</strong> {{ orderDetails.address?.zipCode }}</p>
+  <button (click)="onBack()">Shop Again</button>
+</div> -->
+<div *ngIf="loading">
+  <p>Loading order details...</p>
+</div>
+
+<div *ngIf="error">
+  <p class="error-message">{{ error }}</p>
+</div>
+
+<div *ngIf="orderDetails">
+  <h2>Order Details</h2>
+  <p><strong>Order ID:</strong> {{ orderDetails.orderId }}</p>
+
+  <h3>Shipping Address</h3>
+  <p><strong>Full Name:</strong> {{ orderDetails.user?.fullName }}</p>
+  <p><strong>Address Line 1:</strong> {{ orderDetails.user?.addressLine1 }}</p>
+  <p><strong>Address Line 2:</strong> {{ orderDetails.user?.addressLine2 }}</p>
+  <p><strong>City:</strong> {{ orderDetails.user?.city }}</p>
+  <p><strong>State:</strong> {{ orderDetails.user?.state }}</p>
+  <p><strong>Zip Code:</strong> {{ orderDetails.user?.zipCode }}</p>
+  <button (click)="onBack()">Shop Again </button>
+</div>

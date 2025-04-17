@@ -1,0 +1,31 @@
+  <div class="home-container">
+    <h2>Product List</h2>
+  
+    <div *ngIf="notificationMessage" class="notification" [ngClass]="notificationType">
+      {{ notificationMessage }}
+    </div>
+    
+    <div *ngIf="isLoading" class="loading-indicator">
+      Loading products...
+    </div>
+  
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  
+    <div *ngIf="products.length === 0 && !isLoading && !errorMessage" class="no-products">
+      <p>No products available.</p>
+    </div>
+  
+    <div *ngIf="filteredProducts.length > 0 && !isLoading" class="product-list">
+      <div *ngFor="let product of filteredProducts" class="product-item">
+        <h3>{{ product.name }}</h3>
+        <p>Price: ${{ product.price }}</p>
+        <p>Category: {{ product.category }}</p>
+        <p>{{ product.description }}</p>
+        <button class="addToCart-button" (click)="addToCart(product)">Add to Cart</button>
+        <button id="view-button"  *ngIf="product.id" (click)="viewProductDetails(product.id)">View Details</button>
+      </div>
+    </div>
+  </div>
+  

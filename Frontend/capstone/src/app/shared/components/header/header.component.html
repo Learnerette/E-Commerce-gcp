@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">FastFlip</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item" *ngFor="let navitem of navItems">
+          <a class="nav-link" routerLink="{{ navitem.path }}" routerLinkActive="custom-active" [attr.aria-current]="navitem.path === '/' ? 'page' : null" [routerLinkActiveOptions]="{exact: true}">
+            {{ navitem.label }}
+          </a>
+        </li>
+      </ul>
+      <!-- Dropdown for categories -->
+      <form class="d-flex category-form">
+        <div class="input-group">
+          <select (change)="onCategoryChange($event)">
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+          </select>
+        </div>
+      </form>
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="/admin/auth/login" routerLinkActive="custom-active" [routerLinkActiveOptions]="{exact: true}">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <button class="logout-button" (click)="logout()" routerLinkActive="custom-active" [routerLinkActiveOptions]="{exact: true}">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
